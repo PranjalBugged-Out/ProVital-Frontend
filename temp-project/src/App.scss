@@ -1,0 +1,18 @@
+.app {
+  width: 100%;
+  min-height: 2000px; // Increased to accommodate all absolute positioned elements
+  position: relative;
+  overflow-x: hidden; // Prevent horizontal scrolling
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0; // Remove padding since header is absolute
+}
+
+// Add a container to center the content
+.app__container {
+  width: 1280px;
+  position: relative;
+  margin: 0 auto;
+} 
