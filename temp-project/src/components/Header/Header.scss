@@ -481,9 +481,10 @@
 
   &__large-group {
     position: absolute;
-    width: 1525px;
+    width: 100%; /* Set to 100% to span parent width */
     height: 485px;
-    left: 80px;
+    left: 0; /* Align to left edge */
+    transform: none; /* Remove transform */
     top: 979px;
     z-index: 2;
   }
@@ -705,6 +706,7 @@
   }
 
   &__vector-16 {
+    display: none; /* Hidden as it's causing an unwanted yellow rectangle on the right */
     position: absolute;
     width: 1415.04px;
     height: 671.72px;
@@ -999,6 +1001,49 @@
     cursor: pointer;
     display: inline-block; /* Essential for transform to work */
   }
+
+  &__measurement-box--05 {
+    position: absolute;
+    width: 161px;
+    height: 43px;
+    background: rgba(255, 255, 255, 0.87);
+    backdrop-filter: blur(7.5px);
+    -webkit-backdrop-filter: blur(7.5px);
+    border-radius: 67px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align content to start */
+    gap: 8px; /* Space between icon and text */
+    bottom: 24px;
+    left: 24px;
+    padding: 0 12px; /* Adjust padding for better look */
+
+    .pillar-card__icon--heart {
+      width: 24px;
+      height: 21px;
+      flex-shrink: 0;
+    }
+
+    .pillar-card__text-content {
+      width: 101px;
+      height: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start; /* Align text content to start */
+      gap: 4px;
+      font-size: 16px;
+      font-weight: 500;
+
+      .pillar-card__text--bold {
+        font-weight: 600;
+        color: #1A1A1A; /* Dark color for 'Feeling' */
+      }
+
+      .pillar-card__text--light {
+        color: #707070; /* Lighter color for 'better' */
+      }
+    }
+  }
 }
 
 /* Breathing Glow Animation */
@@ -1017,8 +1062,8 @@
 /* --- HOW IT WORKS Section --- */
 .how-it-works .container {
   width: 100%;
-  max-width: 1120px; /* Adjust based on your design's container width */
-  margin: 0;
+  max-width: 1280px; /* Increased max-width to increase the section's length */
+  margin: 0 auto;
   padding: 0 0;
 }
 
@@ -1127,16 +1172,33 @@
   justify-content: flex-start;
   width: 100%;
   box-sizing: border-box;
+
+  &--single-active {
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 0;
+
+    .pillar-card {
+      flex: 1 0 100%;
+      max-width: 100%;
+      margin: 0;
+      overflow: visible;
+
+      &__image {
+        background-size: contain; /* Ensure entire image is visible without cropping */
+      }
+    }
+  }
 }
 
 .pillar-card {
-  flex: 0 0 calc(33.333% - 16px);
-  max-width: 350px;
+  flex: 1 0 calc(33.333% - 16px); /* Allow cards to grow and take up available space */
+  max-width: none; /* Remove max-width constraint */
   background: #FFFFFF;
   border: 1px solid #EAEAEA;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
   border-radius: 16px;
-  padding: 0; /* Removed padding from the card itself */
+  padding: 0;
   text-align: left;
   box-sizing: border-box;
   position: relative;
@@ -1155,16 +1217,147 @@
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 16px 16px 0px 0px;
-    margin: 0; /* Removed negative margins */
+    margin: 0;
     transition: transform 0.3s ease-in-out;
+    position: relative; /* Added to make it a positioning context for absolute children */
   }
 
   &__content {
-    padding: 24px; /* Added padding to the content area */
+    padding: 24px;
   }
 
   &:hover .pillar-card__image {
     transform: scale(1.05);
+  }
+
+  &__measurement-box {
+    position: absolute;
+    bottom: 24px; /* Adjusted to bring it closer to the bottom-left corner */
+    left: 24px; /* Adjusted to bring it closer to the bottom-left corner */
+    background: #FFFFFF;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 16px; /* Adjusted for more rounded corners */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Aligned content to the left */
+    gap: 8px;
+    padding: 8px 16px 8px 12px; /* Adjusted padding for better spacing */
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #1A1A1A;
+    z-index: 3;
+
+    &--01 {
+      width: 170px; /* Original width for Pillar 1 measurement box */
+      height: 42px; /* Original height for Pillar 1 measurement box */
+    }
+
+    &--02 {
+      width: 145px;
+      height: 43px;
+    }
+
+    &--03 {
+      width: 116px;
+      height: 42px;
+    }
+
+    &--04 {
+      width: 122px;
+      height: 43px;
+    }
+
+    &--05 {
+      position: absolute;
+      width: 161px;
+      height: 43px;
+      background: rgba(255, 255, 255, 0.87);
+      backdrop-filter: blur(7.5px);
+      -webkit-backdrop-filter: blur(7.5px);
+      border-radius: 67px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8px;
+      bottom: 24px;
+      left: 24px;
+      padding: 0 12px;
+
+      .pillar-card__icon--heart {
+        width: 24px;
+        height: 21px;
+        flex-shrink: 0;
+      }
+
+      .pillar-card__text-content {
+        width: 101px;
+        height: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 4px;
+        font-size: 16px;
+        font-weight: 500;
+
+        .pillar-card__text--bold {
+          font-weight: 600;
+          color: #1A1A1A;
+        }
+
+        .pillar-card__text--light {
+          color: #707070;
+        }
+      }
+    }
+
+    &--06 {
+      position: absolute;
+      width: 120px;
+      height: 43px;
+      background: rgba(255, 255, 255, 0.87);
+      backdrop-filter: blur(7.5px);
+      -webkit-backdrop-filter: blur(7.5px); /* For Safari support */
+      border-radius: 67px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start; /* Align content to start */
+      gap: 8px; /* Space between icon and text */
+      bottom: 24px; /* Default positioning */
+      left: 24px; /* Default positioning */
+      padding: 0 12px; /* Adjust padding for better look */
+
+      svg {
+        width: 20px; /* SVG width */
+        height: 20px; /* SVG height */
+        flex-shrink: 0;
+      }
+
+      .pillar-card__text-content {
+        width: 57px; /* Updated width for inner content */
+        height: 22px; /* Updated height for inner content */
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Align text content to start */
+        gap: 4px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        color: #1A1A1A;
+      }
+
+      .pillar-card__measurement-unit {
+        font-size: 14px;
+        font-weight: 500;
+        color: #707070;
+      }
+    }
+  }
+
+  &__measurement-unit {
+    font-size: 14px;
+    font-weight: 500;
+    color: #707070;
   }
 }
 
