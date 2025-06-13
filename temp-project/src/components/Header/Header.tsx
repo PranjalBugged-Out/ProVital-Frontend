@@ -8,7 +8,7 @@ import womanBlueImage from '../../assets/Rectangle 112.jpg';
 import newImage1 from '../../assets/Rectangle 3468484.jpg';
 import newImage2 from '../../assets/Rectangle 3468485.jpg';
 import newImage3 from '../../assets/Rectangle 3468482.jpg';
-import nutritionImage from '../../assets/nutrition.jpg';
+import nutritionImage from '../../assets/Rectangle 110.jpg';
 import physicalActivityImage from '../../assets/physical_activity.jpg';
 import restorativeSleepImage from '../../assets/restorative_sleep.jpg';
 import stressManagementImage from '../../assets/stress_management.jpg';
@@ -403,7 +403,7 @@ const Header: React.FC = () => {
                 /* Card 1: Nutrition */
                 <div className="pillar-card">
                   <span className="pillar-card__step-number">01</span>
-                  <div className="pillar-card__image" style={{ backgroundImage: `url('/nutrition.jpg')` }}>
+                  <div className="pillar-card__image" style={{ backgroundImage: `url(${nutritionImage})` }}>
                     {/* Measurement Box for Pillar 1 */}
                     <div className="pillar-card__measurement-box pillar-card__measurement-box--01">
                       <svg width="24" height="21" viewBox="0 0 24 21" fill="none" xmlns="http://www.w3.org/2000/svg">
