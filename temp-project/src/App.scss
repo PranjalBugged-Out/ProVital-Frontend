@@ -12,7 +12,7 @@
 
 // Add a container to center the content
 .app__container {
-  width: 1280px;
+  width: 100%; /* Allow container to take full width */
   position: relative;
-  margin: 0 auto;
+  margin: 0; /* Remove auto margins */
 } 
