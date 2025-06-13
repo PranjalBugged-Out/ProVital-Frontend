@@ -403,7 +403,7 @@ const Header: React.FC = () => {
                 /* Card 1: Nutrition */
                 <div className="pillar-card">
                   <span className="pillar-card__step-number">01</span>
-                  <div className="pillar-card__image" style={{ backgroundImage: `url(${nutritionImage})` }}>
+                  <div className="pillar-card__image" style={{ backgroundImage: `url('/nutrition.jpg')` }}>
                     {/* Measurement Box for Pillar 1 */}
                     <div className="pillar-card__measurement-box pillar-card__measurement-box--01">
                       <svg width="24" height="21" viewBox="0 0 24 21" fill="none" xmlns="http://www.w3.org/2000/svg">
