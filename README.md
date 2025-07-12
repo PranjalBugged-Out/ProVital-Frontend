@@ -36,6 +36,8 @@ export default tseslint.config({
   },
 })
 
+## React-Specific Rules
 
+Add plugins for React best practices:
 
 
